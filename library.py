@@ -1,4 +1,5 @@
 import book
+from member import Student, Faculty
 import csv
 class Library:
 
@@ -35,9 +36,17 @@ class Library:
                 'total_copies': new_book.total_copies,
                 'available_copies': new_book.available_copies
 
-                
-                        })
 
+                        })
+    def register_member(self, member_id   , name, member_type):
+        if member_type == "student":
+            new_member = Student(member_id, name,  [])
+        elif member_type == "faculty":
+            new_member = Faculty(member_id, name, [])
+        else:
+            raise ValueError("Invalid member type. Must be 'student' or 'faculty'.")
+        return new_member
+        
 
         
     
